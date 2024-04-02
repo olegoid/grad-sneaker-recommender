@@ -161,6 +161,10 @@ Adjusting Training Parameters: Based on initial fine-tuning results, adjust the 
 Performance Evaluation: Evaluate the fine-tuned model’s performance using a separate test set not seen by the model during training. Employ both qualitative and quantitative assessments to measure the accuracy and naturalness of the generated descriptions.
 Iterative Refinement: Based on performance feedback, iterate over the fine-tuning process, making necessary adjustments to the model and possibly enriching the high-quality dataset with more examples.
 
+So far, I've been able to run the non-fine tuned version of the model locally but it takes forever to process the images and generate descriptions. Here's the demo:
+
+<img width="592" alt="Screenshot 2024-03-17 225602" src="https://github.com/olegoid/grad-sneaker-recommender/assets/1524073/59022337-0fb7-4a54-b406-05ae2c676042">
+
 ##### Comparative Analysis Tool Development
 
 Develop the final product for comparing sneaker designs.
