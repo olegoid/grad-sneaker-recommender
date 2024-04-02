@@ -14,13 +14,13 @@ The primary objective is to create a system capable of scraping sneaker images f
 
 Develop a scraper to collect sneaker images from specified websites.
 
-##### Integration with ChatGPT API
-
-Use the ChatGPT API to generate textual descriptions of the sneakers.
-
 ##### Database Design and Implementation (Neo4j)
 
 Design the Neo4j graph database schema. Implement the database to store sneaker descriptions.
+
+##### Integration with ChatGPT API
+
+Use the ChatGPT API to generate textual descriptions of the sneakers.
 
 ##### Development of Custom LLM (MiniGPT4 + fine tuning)
 
