@@ -172,3 +172,9 @@ So far, I've been able to run the non-fine tuned version of the model locally bu
 ##### Comparative Analysis Tool Development
 
 Develop the final product for comparing sneaker designs.
+
+References:
+
+- Neo4J online classes: https://learn.deeplearning.ai/courses/knowledge-graphs-rag/lesson/1/introduction
+- https://minigpt-4.github.io/
+- MiniGPT4 whitepaper: https://arxiv.org/pdf/2304.10592.pdf
