@@ -65,7 +65,7 @@ Design the Neo4j graph database schema. Implement the database to store sneaker 
 
 Example description:
 
-
+![air-max-270-womens-shoes-Pgb94t](https://github.com/olegoid/grad-sneaker-recommender/assets/1524073/365ba8f0-792f-447b-8629-89d1ec55904f)
 
 ```
 {
