@@ -16,7 +16,123 @@ Develop a scraper to collect sneaker images from specified websites.
 
 ##### Database Design and Implementation (Neo4j)
 
-Design the Neo4j graph database schema. Implement the database to store sneaker descriptions.
+Design the Neo4j graph database schema. Implement the database to store sneaker descriptions. At the time of writing I have the following schema in mind:
+
+```
+{
+  "sneaker": {
+    "sneakerId": "unique_sneaker_id",
+    "name": "Sneaker Model Name",
+    "brand": "Sneaker Brand",
+    "components": [
+      {
+        "nodeType": "OverallShape",
+        "description": "Shape description"
+      },
+      {
+        "nodeType": "Upper",
+        "materials": ["Material1", "Material2"],
+        "colorway": ["Color1", "Color2"],
+        "pattern": "Pattern description"
+      },
+      {
+        "nodeType": "Midsole",
+        "material": "Midsole material",
+        "color": "Midsole color",
+        "technology": "Cushioning tech"
+      },
+      {
+        "nodeType": "Outsole",
+        "material": "Outsole material",
+        "color": "Outsole color",
+        "pattern": "Tread pattern"
+      },
+      {
+        "nodeType": "Laces",
+        "color": "Lace color",
+        "material": "Lace material",
+        "pattern": "Lace pattern"
+      }
+    ],
+    "images": [
+      "http://example.com/image1.jpg",
+      "http://example.com/image2.jpg"
+    ],
+    "tags": ["Retro", "Limited Edition", "Performance"]
+  }
+}
+```
+
+Example description:
+
+
+
+```
+{
+  "sneaker": {
+    "sneakerId": "NIKE-AIR-MAX-270-001",
+    "name": "Nike Air Max 270 Women's Shoes",
+    "brand": "Nike",
+    "components": [
+      {
+        "nodeType": "OverallShape",
+        "description": "Low-top silhouette with an asymmetrical lacing system and a bootie-like construction for a snug fit."
+      },
+      {![air-max-270-womens-shoes-Pgb94t](https://github.com/olegoid/grad-sneaker-recommender/assets/1524073/32a5a7fa-b7e9-4aeb-9d4a-79e312aa52b1)
+
+        "nodeType": "Upper",
+        "materials": [
+          "Engineered mesh for breathability",
+          "Neoprene for stretch and comfort",
+          "Synthetic overlays for structure"
+        ],
+        "colorway": ["White", "Pink Foam", "Yellow Strike", "Black"],
+        "pattern": "The upper has a white base with a subtle diamond pattern, accented with black Nike Swoosh, Pink Foam heel tab, and Yellow Strike lace loops."
+      },
+      {
+        "nodeType": "Midsole",
+        "material": "Dual-density foam",
+        "color": "White with a clear Air Max unit exposing a vibrant Hot Punch color",
+        "technology": "Max Air 270 unit for superior heel cushioning and a smooth transition to the forefoot."
+      },
+      {
+        "nodeType": "Outsole",
+        "material": "Rubber",
+        "color": "Hot Punch to Black gradient with strategically placed traction pads",
+        "pattern": "Dual-tone outsole with waffle-inspired pattern for durability and grip."
+      },
+      {
+        "nodeType": "Laces",
+        "color": "Yellow Strike",
+        "material": "Woven fibers",
+        "pattern": "Flat laces designed to stay tied during active use."
+      },
+      {
+        "nodeType": "Heel Counter",
+        "material": "Thermoplastic polyurethane (TPU)",
+        "color": "Translucent Pink Foam",
+        "feature": "Sturdy external heel counter provides support and locks the heel in place."
+      },
+      {
+        "nodeType": "Sockliner",
+        "material": "EVA foam",
+        "feature": "Cushioned sockliner conforms to the foot for a custom fit."
+      },
+      {
+        "nodeType": "Tongue",
+        "material": ["Neoprene", "Mesh"],
+        "color": "White with a hint of Yellow Strike",
+        "feature": "Padded tongue with 'Air 270' branding offers cushioning over the foot arch."
+      }
+    ],
+    "images": [
+      "http://example.com/air-max-270-womens-shoes-Pgb94t.png"
+    ],
+    "tags": ["Sporty", "Vibrant", "Air Cushioning", "Iconic Design"]
+  }
+}
+```
+
 
 ##### Integration with ChatGPT API
 
