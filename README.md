@@ -10,7 +10,7 @@ The primary objective is to create a system capable of scraping sneaker images f
 
 ### System Diagram
 
-![SneakerDiagram drawio](https://github.com/olegoid/grad-sneaker-recommender/assets/1524073/704a499e-abbd-4dd5-9ac6-6fa6c412fb64)
+![SneakerDiagram drawio (1)](https://github.com/olegoid/grad-sneaker-recommender/assets/1524073/07e99380-d41a-4f2c-a793-0050593f60ed)
 
 ### Execution Plan
 
