@@ -8,6 +8,10 @@ The primary objective is to create a system capable of scraping sneaker images f
 - Author: Oleg Demchenko
 - Scientific Advisor: Georgy Panchuk
 
+### System Diagram
+
+![SneakerDiagram drawio](https://github.com/olegoid/grad-sneaker-recommender/assets/1524073/704a499e-abbd-4dd5-9ac6-6fa6c412fb64)
+
 ### Execution Plan
 
 ##### Web Scraper Development
