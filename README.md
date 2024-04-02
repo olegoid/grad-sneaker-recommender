@@ -26,6 +26,7 @@ Design the Neo4j graph database schema. Implement the database to store sneaker 
 ##### Development of Custom LLM (MiniGPT4 + fine tuning)
 
 Train a custom language model for generating sneaker descriptions to replace ChatGPT.
-Comparative Analysis Tool Development
+
+##### Comparative Analysis Tool Development
 
 Develop the final product for comparing sneaker designs.
