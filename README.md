@@ -5,8 +5,8 @@ This project aims to develop an advanced system for the comparative analysis and
 ### Task Statement
 The primary objective is to create a system capable of scraping sneaker images from the web, analyzing these images to generate detailed descriptions, and storing this information in a graph database for comparative analysis. At first the project will heavily rely on OpenAI-s public API for description generation. However, the primary research objective of this work is to develop a model equivalent to ChatGPT capable of description generation.
 
-Author: Oleg Demchenko
-Scientific Advisor: Georgy Panchuk
+- Author: Oleg Demchenko
+- Scientific Advisor: Georgy Panchuk
 
 
 ### Execution Plan
