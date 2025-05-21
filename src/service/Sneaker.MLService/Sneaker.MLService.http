@@ -1,0 +1,6 @@
+@Sneaker.MLService_HostAddress = http://localhost:5057
+
+GET {{Sneaker.MLService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
