@@ -1,4 +1,6 @@
-﻿public class ServiceBusConsumer : BackgroundService
+﻿using Azure.Messaging.ServiceBus;
+
+public class ServiceBusConsumer : BackgroundService
 {
     private readonly ServiceBusClient _client;
     private readonly ServiceBusSender _sender;
