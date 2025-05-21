@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  telegram-bot:
+    build:
+      context: ./TelegramBot
+    environment:
+      - TELEGRAM_BOT_TOKEN=your-bot-token-here
+      - Azure__ServiceBusConnection=Endpoint=sb://2da8cde0-72ee-4250-b238-7b864dbfcbf0.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key
+      - Azure__RequestQueue=recommendation-requests
+      - Azure__ResponseQueue=recommendation-responses
+    depends_on:
+      - inference-api
+    ports:
+      - "5000:80"
+
+  ml-service:
+    build:
+      context: ./Sneaker.MLService
+    environment:
+      - Azure__ServiceBusConnection=Endpoint=sb://2da8cde0-72ee-4250-b238-7b864dbfcbf0.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key
+      - Azure__RequestQueue=recommendation-requests
+      - Azure__ResponseQueue=recommendation-responses
+      - Inference__Url=http://inference-api:8080
+    depends_on:
+      - inference-api
+
+  inference-api:
+    build:
+      context: ./inference
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./inference:/app
+    restart: always

@@ -13,11 +13,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{FAE2F7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sneaker.MLService", "service\Sneaker.MLService\Sneaker.MLService.csproj", "{0A08A7FC-46A6-4719-853B-9A33F1794BCA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inference", "Inference", "{CCCAC400-A978-4BB1-99FE-50BCFD4322D3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{92E50217-192B-4525-B831-343B07E73ED2}"
 	ProjectSection(SolutionItems) = preProject
-		Dockerfile = Dockerfile
-		model_runner.py = model_runner.py
-		requirements.txt = requirements.txt
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inference", "Inference", "{3D409176-2566-436E-AA9E-DAB204599545}"
+	ProjectSection(SolutionItems) = preProject
+		inference\Dockerfile = inference\Dockerfile
+		inference\model_runner.py = inference\model_runner.py
+		inference\requirements.txt = inference\requirements.txt
 	EndProjectSection
 EndProject
 Global

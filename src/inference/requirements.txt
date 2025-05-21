@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pillow
+torch
+torchvision
+efficientnet_pytorch
+faiss-cpu
+azure-ai-ml
+azure-identity
