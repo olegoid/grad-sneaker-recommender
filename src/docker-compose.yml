@@ -18,7 +18,7 @@ services:
     build:
       context: ./Sneaker.MLService
     environment:
-      - Azure__ServiceBusConnection=Endpoint=sb://2da8cde0-72ee-4250-b238-7b864dbfcbf0.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key
+      - Azure__ServiceBusConnection=Endpoint=sb://2da8cde0-72ee-4250-b238-7b864dbfcbf0.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=your-key
       - Azure__RequestQueue=recommendation-requests
       - Azure__ResponseQueue=recommendation-responses
       - Inference__Url=http://inference-api:8080
@@ -32,4 +32,9 @@ services:
       - "8080:8080"
     volumes:
       - ./inference:/app
+      - ~/.azure:/root/.azure:ro  # Needed for DefaultAzureCredential when running locally
     restart: always
+    environment:
+      - AML_SUBSCRIPTION_ID=your-subscription-id
+      - AML_RESOURCE_GROUP=your-resource-group
+      - AML_WORKSPACE_NAME=your-workspace-name
