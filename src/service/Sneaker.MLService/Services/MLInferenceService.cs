@@ -1,29 +1,49 @@
-﻿public class MLInferenceService
-{
-    private readonly SneakerSearchService _search;
+﻿using System.Net.Http.Headers;
+using System.Text.Json;
 
-    public MLInferenceService(SneakerSearchService search)
+public class MLInferenceService
+{
+    private readonly HttpClient _httpClient;
+
+    public MLInferenceService(HttpClient httpClient)
     {
-        _search = search;
+        _httpClient = httpClient;
     }
 
     public async Task<ResponsePayload> ProcessRequestAsync(RequestPayload request)
     {
-        // Save the image locally or stream to Python
-        var tempPath = Path.GetTempFileName();
-        using var client = new HttpClient();
-        await using var stream = await client.GetStreamAsync(request.ImageUrl);
-        await using var file = File.Create(tempPath);
-        await stream.CopyToAsync(file);
+        // Download the image to memory
+        using var imageStream = await new HttpClient().GetStreamAsync(request.ImageUrl);
+        using var imageContent = new StreamContent(imageStream);
+        imageContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
 
-        // Run Python script for image and (optionally) text embedding
-        var result = await _search.FindSimilarAsync(tempPath, request.Text);
+        // Prepare the multipart/form-data request
+        using var form = new MultipartFormDataContent
+        {
+            { imageContent, "file", "image.jpg" }
+        };
+
+        // Send to inference service (assumed to be running on localhost:8080)
+        var response = await _httpClient.PostAsync("http://localhost:8080/predict", form);
+        response.EnsureSuccessStatusCode();
+
+        var resultJson = await response.Content.ReadAsStringAsync();
+        var result = JsonSerializer.Deserialize<InferenceResult>(resultJson, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        });
 
         return new ResponsePayload
         {
             ChatId = request.ChatId,
-            Recommendation = result.RecommendationText,
-            ImageUrl = result.PreviewImageUrl
+            Recommendation = result.Recommendation,
+            ImageUrl = result.ImageUrl
         };
     }
+}
+
+public class InferenceResult
+{
+    public string Recommendation { get; set; }
+    public string ImageUrl { get; set; }
 }

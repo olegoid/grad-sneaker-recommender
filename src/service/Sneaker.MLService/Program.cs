@@ -1,7 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHostedService<ServiceBusConsumer>();
-builder.Services.AddSingleton<MLInferenceService>();
+builder.Services.AddHttpClient<MLInferenceService>();
 builder.Services.AddSingleton<SneakerSearchService>();
 
 builder.Services.AddSingleton<ServiceBusClient>(sp =>
